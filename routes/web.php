@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\UserManagementController;
 
+Route::view('/', 'welcome');
+
 // Auth Routes
 Route::group([ 'as' => 'user.'], function () {
     Route::get('/login', [AuthController::class, 'showLoginPage'])->name('login');
