@@ -2,17 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\Item;
+use App\Models\Todo;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class ItemFactory extends Factory
+class TodoFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Item::class;
+    protected $model = Todo::class;
 
     /**
      * Define the model's default state.
@@ -22,7 +22,9 @@ class ItemFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'user_id' => 1,
+            'name' => $this->faker->text(10),
+            'description' => $this->faker->text(20),
         ];
     }
 }

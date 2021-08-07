@@ -6,8 +6,10 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Laravel Todo App</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('css/toastr.min.css') }}">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="{{ asset('js/jquery.min.js') }}"></script>
 
     @yield('custom_css')
@@ -58,21 +60,29 @@
     </script>
 
     @stack('toast')
+
+    <style>
+        .navbar {
+
+        }
+    </style>
 </head>
 <body>
     <header>
+        <nav class="px-4 py-3 shadow navbar bg-primary d-flex justify-content-between">
+            <h5 class="m-0 text-white navbar__title">Laravel Todo</h5>
 
+            <form action="{{ route('user.logout') }}" method="GET">
+                @csrf
+                <button class="btn btn-light" type="submit">Logout</button>
+            </form>
+        </nav>
     </header>
 
     <main>
         @yield('main__content')
     </main>
 
-    <footer class="bottom-0 py-3 shadow position-fixed bg- white footer" style="width: 100%;">
-        <div class="text-center">
-            <p class="m-0 text-muted"><span>2021</span>Alrights Reserved ~ Unijos E-Vote App</p>
-        </div>
-    </footer>
 
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/toastr.min.js') }}"></script>
