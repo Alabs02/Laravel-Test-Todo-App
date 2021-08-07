@@ -23,6 +23,12 @@
             font-size: .9rem;
             font-weight: 400;
         }
+
+        @media only screen and (max-width: 700px) {
+            .card {
+                width: 100%;
+            }
+        }
     </style>
 @endsection
 
