@@ -22,7 +22,7 @@ class TodoFactory extends Factory
     public function definition()
     {
         return [
-            'user_id' => 1,
+            'user_id' => rand(1,10),
             'name' => $this->faker->text(10),
             'description' => $this->faker->text(20),
         ];
