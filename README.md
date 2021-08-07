@@ -26,6 +26,12 @@ php artisan migrate
 php artisan db:seed
 ```
 
+> After successful db seed
+> The default password is:
+```
+1234Pass
+```
+
 > To spin off development server run:
 ```
 php artisan serve
