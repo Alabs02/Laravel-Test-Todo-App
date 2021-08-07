@@ -2,7 +2,7 @@
 
 
 
-## About Laravel
+## About Laravel Todo App
 
 A simple Todo App Build with Laravel
 
