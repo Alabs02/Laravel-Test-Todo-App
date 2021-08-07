@@ -18,7 +18,7 @@ composer install
 npm install
 ```
 
-> To Generate faker user data
+> To Generate fake user data
 > Setup database
 > RUN
 ```
