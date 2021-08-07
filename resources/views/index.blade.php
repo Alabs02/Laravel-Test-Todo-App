@@ -81,6 +81,13 @@
                 </div>
                <!-- End Add Modal   -->
            </div>
+
+           @if (empty($todos))
+            <div class="my-4 text-center">
+                <h5 class="m-0">You have no todo items at this time.</h5>    
+            </div>
+           @endif
+           
            <div class="row">
                 @foreach ($todos as $todo)
                     <div class="col-md-4 col-sm-12">
