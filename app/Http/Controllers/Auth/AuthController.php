@@ -70,31 +70,30 @@ class AuthController extends Controller
 
     public function login(Request $request)
     {
-        try {
-            $request['email'] = $request->input('user-email');
-            $request['password'] = $request->input('user-password');
+        
+        $request['email'] = $request->input('user-email');
+        $request['password'] = $request->input('user-password');
 
-            $validator = Validator::make($request->all(), [
-                'email' => 'required|email',
-                'password' => 'required',
-            ]);
+        $validator = Validator::make($request->all(), [
+            'email' => 'required|email',
+            'password' => 'required',
+        ]);
 
-            if ($validator->fails()) {
-                return back()
-                    ->withErrors($validator->errors());
-            }
-
-            if (Auth::attempt($request->only('email', 'password'))) {
-                $request->session()->regenerateToken();
-                return redirect()
-                    ->intended(route('user.dashboard'))
-                    ->with('message', 'Logged in successfully!');
-            }
-
-        } catch (\Exception $e) {
+        if ($validator->fails()) {
             return back()
-                ->withErrors('An error occured, '. $e->getMessage());
+                ->withErrors($validator->errors());
         }
+
+        if (!Auth::attempt($request->only('email', 'password'))) {
+           return back()
+                ->withErrors('Invalid login credentials');
+        }
+
+         $request->session()->regenerateToken();
+            return redirect()
+                ->intended(route('user.dashboard'))
+                ->with('message', 'Logged in successfully!');
+
     }
 
     public function logout(Request $request)
